@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">PhSolve</string>
+    <string name="app_name">Perhitungan Kelembaban Tanah</string>
     <string name="hasil_text">Hasil %1\$s: %.2f</string>
     <string name="berat_tanah_kering_g" />
-    <string name="header_text">Masukkan berat tanah basah dan kering untuk menghitung kadar air tanah</string>
+    <string name="header_text">\t\tMasukkan berat tanah basah dan kering untuk menghitung kadar air tanah.\n\nCaranya:\n\n\t\tMengambil sampel tanah dari kedalaman 10–20 cm dan menentukan beratnya. Kemudian, tanah tersebut disiram air dan dibiarkan mengalir dengan bebas selama 24 jam. Setelah itu, tanah diambil kembali dan diukur beratnya. Selisih antara berat tanah basah dan kering tersebut adalah presentase kelembaban.</string>
     <string name="berat_tanah_basah_g">Berat Tanah Basah (gram)</string>
     <string name="berat_tanah_kering">Berat Tanah Kering (gram)</string>
     <string name="jenis_tanaman">Padi, Jagung, Kedelai, Kacang Tanah</string>
     <string name="hitung_button_text">Hitung</string>
-    <string name="hasil">Hasil %f</string>
+    <string name="hasil">Hasil </string>
     <string name="jenis_tanaman_">Jenis Tanaman</string>
     <string name="hitung">Hitung</string>
 

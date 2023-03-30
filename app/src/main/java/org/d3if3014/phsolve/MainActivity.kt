@@ -8,6 +8,7 @@ import android.widget.Spinner
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,29 +44,38 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("StringFormatMatches")
     private fun hitung() {
-        val beratBasah = basahInputLayout.editText?.text.toString().toDoubleOrNull() ?: return
-        val beratKering = keringInputLayout.editText?.text.toString().toDoubleOrNull() ?: return
+        val beratBasah = basahInputLayout.editText?.text.toString().toDoubleOrNull()
+        val beratKering = keringInputLayout.editText?.text.toString().toDoubleOrNull()
+
+        if (beratBasah ==null || beratKering ==null) {
+            Toast.makeText(this, "Kolom input tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         val jenisTanaman = jenisTanamanSpinner.selectedItem.toString()
 
         val hasil = (beratBasah - beratKering) / beratKering * 100
-        hasilTextView!!.text = String.format("Hasil: %.2f %%", hasil)
+        hasilTextView.text = String.format("Hasil: %.2f %%", hasil)
 
         // Pengkondisian untuk presentase kelembapan tanah optimal
         var ideal: Pair<Double, Double>? = null
         when (jenisTanaman) {
-            "padi" -> ideal = Pair(20.0, 30.0)
-            "jagung" -> ideal = Pair(25.0, 30.0)
-            "kedelai" -> ideal = Pair(20.0, 30.0)
-            "kacang tanah" -> ideal = Pair(25.0, 30.0)
-            "sayuran" -> ideal = Pair(40.0, 80.0)
-            "buah-buahan" -> ideal = Pair(60.0, 80.0)
+            "Padi" -> ideal = Pair(70.0, 80.0)
+            "Jagung" -> ideal = Pair(60.0, 70.0)
+            "Tebu" -> ideal = Pair(60.0, 70.0)
+            "Kentang" -> ideal = Pair(60.0, 70.0)
+            "Jeruk" -> ideal = Pair(50.0, 70.0)
+            "Apel" -> ideal = Pair(60.0, 70.0)
         }
 
         if (ideal != null && hasil in ideal.first..ideal.second) {
-            hasilTextView.append("\nKelembaban tanah optimal untuk $jenisTanaman")
+            hasilTextView.append("\nKelembaban tanah optimal (${ideal.first}% - ${ideal.second}%) untuk $jenisTanaman")
+        } else if (ideal != null && hasil < ideal.first) {
+            hasilTextView.append("\nKelembaban tanah terlalu rendah (${ideal.first}% - ${ideal.second}%) untuk $jenisTanaman")
+        } else if (ideal != null && hasil > ideal.second) {
+            hasilTextView.append("\nKelembaban tanah terlalu tinggi (${ideal.first}% - ${ideal.second}%) untuk $jenisTanaman")
         } else {
-            hasilTextView.append("\nKelembaban tanah kurang optimal untuk $jenisTanaman")
+            hasilTextView.append("\nData kelembaban tanah tidak tersedia untuk $jenisTanaman")
         }
     }
 }
