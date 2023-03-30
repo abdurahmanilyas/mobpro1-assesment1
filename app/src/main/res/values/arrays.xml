@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="jenis_tanaman">
+        <item>Padi</item>
+        <item>Jagung</item>
+        <item>Tebu</item>
+        <item>Kentang</item>
+        <item>Jeruk</item>
+        <item>Apel</item>
+    </string-array>
+</resources>

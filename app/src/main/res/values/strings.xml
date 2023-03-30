@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PhSolve</string>
+    <string name="hasil_text">Hasil %1\$s: %.2f</string>
+    <string name="berat_tanah_kering_g" />
+    <string name="header_text">Masukkan berat tanah basah dan kering untuk menghitung kadar air tanah</string>
+    <string name="berat_tanah_basah_g">Berat Tanah Basah (gram)</string>
+    <string name="berat_tanah_kering">Berat Tanah Kering (gram)</string>
+    <string name="jenis_tanaman">Padi, Jagung, Kedelai, Kacang Tanah</string>
+    <string name="hitung_button_text">Hitung</string>
+    <string name="hasil">Hasil %f</string>
+    <string name="jenis_tanaman_">Jenis Tanaman</string>
+    <string name="hitung">Hitung</string>
+
+</resources>
